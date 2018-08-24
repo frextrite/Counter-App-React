@@ -1,6 +1,16 @@
 import React, { Component } from "react";
 
 class Counter extends Component {
+  componentDidUpdate(prevProps, prevState) {
+    // Optimization
+    console.log("prevProps", prevProps);
+    console.log("prevState", prevState);
+  }
+
+  componentWillUnmount() {
+    console.log('Component unmount');
+  }
+
   // constructor() {
   //   super();
   //   this.handleIncrement = this.handleIncrement.bind(this);
@@ -11,7 +21,8 @@ class Counter extends Component {
   //   this.setState({ count: this.state.count + 1 });
   // };
   render() {
-    console.log("props: ", this.props);
+    console.log("Counter rendered");
+
     return (
       <React.Fragment>
         <h4>Counter #{this.props.counter.id}</h4>
